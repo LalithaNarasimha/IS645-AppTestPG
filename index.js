@@ -21,10 +21,13 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: false })); // <--- middleware configuration
 
 //connecting to localhost 3000
-app.listen(3000, () => {
-    {
-        console.log("Server started (http://localhost:3000/) !");
-    }
+// app.listen(3000, () => {
+//     {
+//         console.log("Server started (http://localhost:3000/) !");
+//     }
+// });
+const listener = app.listen(process.env.PORT||3000, () => {
+console.log(`Your app is listening on port ${listener.address().port}`);
 });
 
 //root path "/"
